@@ -1,3 +1,7 @@
-image: rancher/dind:v1.9.1-rancher1
-script:
- - ./scripts/ci
+build:
+  image: ros-build-base
+  volumes:
+  - /var/run/docker.sock:/var/run/docker.sock
+  - /dev/kvm:/dev/kvm
+  commands:
+  - ./scripts/ci
